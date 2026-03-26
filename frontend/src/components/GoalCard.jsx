@@ -56,9 +56,9 @@ function GoalCard({ goal, index, onRefresh }) {
       </div>
       
       {pct < 100 && (
-        <div style={{ marginTop: '16px' }}>
+        <div style={{ marginTop: 'auto', paddingTop: '8px' }}>
           {!showAdd ? (
-            <button className="btn btn-secondary" style={{ width: '100%', padding: '8px', fontSize: '0.9rem' }} onClick={() => setShowAdd(true)}>
+            <button className="btn btn-outline" style={{ width: '100%', fontSize: '0.9rem' }} onClick={() => setShowAdd(true)}>
               + Add Funds
             </button>
           ) : (
@@ -70,13 +70,13 @@ function GoalCard({ goal, index, onRefresh }) {
                 value={amount} 
                 onChange={e => setAmount(e.target.value)} 
                 disabled={loading}
-                style={{ flex: 1, padding: '8px' }}
+                style={{ flex: 1, minWidth: '0' }}
                 autoFocus
               />
-              <button type="submit" className="btn btn-success" disabled={loading} style={{ padding: '8px 16px' }}>
+              <button type="submit" className="btn btn-success" disabled={loading} style={{ padding: '8px 12px' }}>
                 {loading ? '...' : 'Save'}
               </button>
-              <button type="button" className="btn btn-secondary" onClick={() => setShowAdd(false)} disabled={loading} style={{ padding: '8px 16px' }}>
+              <button type="button" className="btn btn-outline" onClick={() => setShowAdd(false)} disabled={loading} style={{ padding: '8px 12px' }}>
                 Cancel
               </button>
             </form>
