@@ -9,6 +9,7 @@ auth_bp = Blueprint('auth_bp', __name__)
 def register():
     try:
         data = request.get_json()
+        print(f"DEBUG: Register attempt for email: {data.get('email')}")
         if not data:
             return jsonify({"error": "Missing request body"}), 400
             
@@ -17,9 +18,11 @@ def register():
             if field not in data:
                 return jsonify({"error": f"Missing {field}"}), 400
         
+        print("DEBUG: Checking if user exists...")
         if find_user_by_email(data["email"]):
             return jsonify({"error": "Email already exists"}), 400
             
+        print("DEBUG: Hashing password...")
         # Hash password
         hashed = bcrypt.hashpw(data["password"].encode('utf-8'), bcrypt.gensalt())
         
@@ -32,36 +35,46 @@ def register():
             "financial_goal": data.get("financial_goal", "")
         }
         
+        print("DEBUG: Creating user in DB...")
         user_id = create_user(user_data)
+        print(f"DEBUG: User created with ID: {user_id}")
+        
         access_token = create_access_token(identity=user_id)
         return jsonify({"message": "User created successfully", "token": access_token}), 201
     except Exception as e:
-        print(f"Registration Error: {str(e)}")
+        import traceback
+        print(f"CRITICAL Registration Error: {str(e)}")
+        traceback.print_exc()
         return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
     try:
         data = request.get_json()
-        print("Login Request Data:", data) # Debugging log
-        
-        if not data:
-            return jsonify({"error": "Missing request body"}), 400
-            
         email = data.get("email")
         password = data.get("password")
+        print(f"DEBUG: Login attempt for email: {email}")
         
-        if not email or not password:
+        if not data or not email or not password:
             return jsonify({"error": "Email and password are required"}), 400
         
+        print("DEBUG: Finding user...")
         user = find_user_by_email(email)
         
         if not user:
+            print("DEBUG: User not found.")
             return jsonify({"error": "Invalid credentials"}), 401
             
-        if not bcrypt.checkpw(password.encode('utf-8'), user["password_hash"].encode('utf-8')):
+        print("DEBUG: Verifying password hash...")
+        stored_hash = user["password_hash"]
+        if isinstance(stored_hash, str):
+            stored_hash = stored_hash.encode('utf-8')
+            
+        if not bcrypt.checkpw(password.encode('utf-8'), stored_hash):
+            print("DEBUG: Password mismatch.")
             return jsonify({"error": "Invalid credentials"}), 401
             
+        print("DEBUG: Login successful, creating token.")
         access_token = create_access_token(identity=str(user["_id"]))
         return jsonify({
             "message": "Login successful", 
@@ -73,7 +86,9 @@ def login():
             }
         }), 200
     except Exception as e:
-        print(f"Login Error: {str(e)}") # Log the error
+        import traceback
+        print(f"CRITICAL Login Error: {str(e)}")
+        traceback.print_exc()
         return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 
 @auth_bp.route('/profile', methods=['GET', 'PUT'])
