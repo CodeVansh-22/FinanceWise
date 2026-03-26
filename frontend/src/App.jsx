@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './styles/global.css';
 import ProtectedRoute from './components/ProtectedRoute';
+import api from './utils/api';
+import { useEffect } from 'react';
 
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
@@ -14,6 +16,19 @@ const Learn = lazy(() => import('./pages/Learn'));
 const Chatbot = lazy(() => import('./pages/Chatbot'));
 
 function App() {
+  useEffect(() => {
+    // Preemptively wake up the backend (Render Free Tier)
+    const wakeServer = async () => {
+      try {
+        await api.get('/health');
+        console.log("Backend wakeup ping successful");
+      } catch (err) {
+        console.warn("Backend wakeup ping failed (expected if server is down)", err);
+      }
+    };
+    wakeServer();
+  }, []);
+
   return (
     <BrowserRouter>
       <Suspense fallback={<div className="app-loader">Loading...</div>}>
