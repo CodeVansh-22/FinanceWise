@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify
-from models.goal import create_goal, get_goals_by_user, update_goal_amount
+from models.goal import create_goal, get_goals_by_user, update_goal_amount, get_goals_collection
+from models.transaction import create_transaction
 from models.loan import create_loan, get_loans_by_user
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
@@ -40,7 +40,23 @@ def add_funds_to_goal(goal_id):
             return jsonify({"error": "Amount must be greater than 0"}), 400
             
         update_goal_amount(goal_id, amount_to_add)
-        return jsonify({"message": "Goal updated successfully"}), 200
+        
+        # Create a transaction entry for the fund addition
+        from bson.objectid import ObjectId
+        goal = get_goals_collection().find_one({"_id": ObjectId(goal_id)})
+        goal_title = goal.get("title", "Goal") if goal else "Goal"
+        
+        user_id = get_jwt_identity()
+        txn_data = {
+            "user_id": ObjectId(user_id),
+            "type": "expense",
+            "amount": amount_to_add,
+            "category": "Goal",
+            "description": f"Added funds to goal: {goal_title}"
+        }
+        create_transaction(txn_data)
+        
+        return jsonify({"message": "Goal updated and transaction recorded"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cardVariants } from '../animations/variants';
-import { FiInbox, FiArrowDownLeft, FiArrowUpRight, FiTrash2, FiLoader } from 'react-icons/fi';
+import { FiInbox, FiArrowDownLeft, FiArrowUpRight, FiTrash2, FiLoader, FiTarget } from 'react-icons/fi';
 import '../styles/transactionlist.css';
 
 const categoryColors = {
@@ -12,6 +12,7 @@ const categoryColors = {
   Entertainment: 'var(--accent-green)',
   Bills: 'var(--danger)',
   Salary: 'var(--accent-green)',
+  Goal: 'var(--accent-blue)',
   Other: 'var(--text-muted)',
 };
 
@@ -49,7 +50,7 @@ function TransactionList({ transactions, onDelete }) {
             layout
           >
             <div className="txn-icon" style={{ color: categoryColors[txn.category] || 'var(--text-muted)' }}>
-              {txn.type === 'income' ? <FiArrowDownLeft /> : <FiArrowUpRight />}
+              {txn.category === 'Goal' ? <FiTarget /> : (txn.type === 'income' ? <FiArrowDownLeft /> : <FiArrowUpRight />)}
             </div>
             <div className="txn-info">
               <p className="txn-category">{txn.category}</p>
