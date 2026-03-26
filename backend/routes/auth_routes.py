@@ -16,27 +16,28 @@ def register():
         for field in required_fields:
             if field not in data:
                 return jsonify({"error": f"Missing {field}"}), 400
-    
-    if find_user_by_email(data["email"]):
-        return jsonify({"error": "Email already exists"}), 400
         
-    # Hash password
-    hashed = bcrypt.hashpw(data["password"].encode('utf-8'), bcrypt.gensalt())
-    
-    user_data = {
-        "name": data["name"],
-        "email": data["email"],
-        "password_hash": hashed.decode('utf-8'),
-        "monthly_income": float(data["monthly_income"]),
-        "city": data.get("city", "Unknown"),
-        "financial_goal": data.get("financial_goal", "")
-    }
-    
-    user_id = create_user(user_data)
-    
-    # Optional: Onboarding quiz to give Health Score can be done later, default is 0
-    access_token = create_access_token(identity=user_id)
-    return jsonify({"message": "User created successfully", "token": access_token}), 201
+        if find_user_by_email(data["email"]):
+            return jsonify({"error": "Email already exists"}), 400
+            
+        # Hash password
+        hashed = bcrypt.hashpw(data["password"].encode('utf-8'), bcrypt.gensalt())
+        
+        user_data = {
+            "name": data["name"],
+            "email": data["email"],
+            "password_hash": hashed.decode('utf-8'),
+            "monthly_income": float(data["monthly_income"]),
+            "city": data.get("city", "Unknown"),
+            "financial_goal": data.get("financial_goal", "")
+        }
+        
+        user_id = create_user(user_data)
+        access_token = create_access_token(identity=user_id)
+        return jsonify({"message": "User created successfully", "token": access_token}), 201
+    except Exception as e:
+        print(f"Registration Error: {str(e)}")
+        return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
