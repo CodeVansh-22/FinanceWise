@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { pageVariants } from '../animations/variants';
 import api from '../utils/api';
-import { PiDiamondFill } from 'react-icons/pi';
 import { FaRobot } from 'react-icons/fa';
 import { FiLoader, FiSend } from 'react-icons/fi';
 import '../styles/chatbot.css';
