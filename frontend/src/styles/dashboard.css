@@ -1,0 +1,131 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.dash-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.dash-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash-greeting {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.dash-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dash-level-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 2px solid;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: var(--bg-card);
+}
+
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.dash-middle {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+
+.dash-health {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.health-ring-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.health-ring {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.health-score-text {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.health-number {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.health-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.health-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.health-savings-rate {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.dash-chart {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.dash-transactions {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+@media (max-width: 900px) {
+  .dash-middle { grid-template-columns: 1fr; }
+}

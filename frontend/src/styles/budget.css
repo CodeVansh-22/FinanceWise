@@ -1,0 +1,113 @@
+.budget-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.txn-hint {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.budget-summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.budget-sum-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+
+.budget-sum-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.budget-sum-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.budget-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.budget-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.budget-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.budget-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.budget-type-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.type-active-income {
+  background: var(--accent-green-soft);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.type-active-expense {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.budget-chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.budget-right {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  min-height: 400px;
+}
+
+@media (max-width: 900px) {
+  .budget-body { grid-template-columns: 1fr; }
+  .budget-summary-row { grid-template-columns: 1fr; }
+}

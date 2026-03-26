@@ -1,0 +1,64 @@
+.goals-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.goals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.goals-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.goals-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.goals-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.goals-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.goals-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .goals-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .goals-form-row {
+    grid-template-columns: 1fr;
+  }
+  .goals-form-card, .goals-grid {
+    padding: 16px;
+  }
+}
