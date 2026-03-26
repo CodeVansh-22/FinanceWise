@@ -83,7 +83,7 @@ function Goals() {
         </div>
       ) : (
         <div className="goals-grid">
-          {goals.map((g, i) => <GoalCard key={g._id || i} goal={g} index={i} />)}
+          {goals.map((g, i) => <GoalCard key={g._id || i} goal={g} index={i} onRefresh={fetchGoals} />)}
         </div>
       )}
     </motion.div>

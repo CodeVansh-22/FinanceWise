@@ -19,8 +19,13 @@ def dashboard():
     savings = total_income - total_expense
     savings_rate = (savings / total_income * 100) if total_income > 0 else 0
     
+    # Dynamic Health Score logic based on engagement
+    calculated_score = int(min(100, (savings_rate * 1.5) + (len(goals) * 10)))
+    if calculated_score < 0:
+        calculated_score = 0
+        
     return jsonify({
-        "health_score": user.get("health_score", 0),
+        "health_score": calculated_score,
         "level": user.get("level", "Beginner"),
         "total_income": total_income,
         "total_expense": total_expense,

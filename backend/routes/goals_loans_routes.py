@@ -30,6 +30,20 @@ def handle_goals():
         goals = get_goals_by_user(user_id)
         return jsonify(goals), 200
 
+@goals_loans_bp.route('/goals/<goal_id>', methods=['PUT'])
+@jwt_required()
+def add_funds_to_goal(goal_id):
+    try:
+        data = request.get_json()
+        amount_to_add = float(data.get("amount", 0))
+        if amount_to_add <= 0:
+            return jsonify({"error": "Amount must be greater than 0"}), 400
+            
+        update_goal_amount(goal_id, amount_to_add)
+        return jsonify({"message": "Goal updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @goals_loans_bp.route('/loans', methods=['GET', 'POST'])
 @jwt_required()
 def handle_loans():
