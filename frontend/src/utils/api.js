@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { getToken, removeToken } from './auth';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://financewise-6i3z.onrender.com';
+
 const api = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/api`,
+  baseURL: `${API_BASE_URL}/api`,
 });
 
 api.interceptors.request.use((config) => {

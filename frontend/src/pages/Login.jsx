@@ -13,22 +13,15 @@ function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isWakingUp, setIsWakingUp] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    let wakingTimer;
     try {
-      wakingTimer = setTimeout(() => {
-        setIsWakingUp(true);
-      }, 3000);
-      
       const res = await api.post('/auth/login', form);
       setToken(res.data.token);
       setUser(res.data.user);
@@ -37,9 +30,7 @@ function Login() {
       const serverError = err.response?.data?.details || err.response?.data?.error || 'Login failed. Try again.';
       setError(serverError);
     } finally {
-      clearTimeout(wakingTimer);
       setLoading(false);
-      setIsWakingUp(false);
     }
   };
 
@@ -93,7 +84,7 @@ function Login() {
             </div>
             <button type="submit" className="btn btn-primary auth-btn" disabled={loading}>
               {loading ? (
-                <span>{isWakingUp ? 'Waking up server (can take ~30s)...' : 'Logging in...'}</span>
+                <span>Logging in...</span>
               ) : (
                 <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Login Karo <FaRocket /></span>
               )}
