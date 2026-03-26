@@ -22,6 +22,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     let wakingTimer;
     try {
       wakingTimer = setTimeout(() => {
