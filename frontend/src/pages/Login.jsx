@@ -28,7 +28,8 @@ function Login() {
       setUser(res.data.user);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed. Try again.');
+      const serverError = err.response?.data?.details || err.response?.data?.error || 'Login failed. Try again.';
+      setError(serverError);
     } finally {
       setLoading(false);
     }

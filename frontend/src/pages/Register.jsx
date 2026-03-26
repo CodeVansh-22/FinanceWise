@@ -31,7 +31,8 @@ function Register() {
       setUser({ name: form.name, email: form.email, level: 'Beginner' });
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed. Try again.');
+      const serverError = err.response?.data?.details || err.response?.data?.error || 'Registration failed. Try again.';
+      setError(serverError);
     } finally {
       setLoading(false);
     }
