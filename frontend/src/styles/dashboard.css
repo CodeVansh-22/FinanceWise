@@ -129,3 +129,15 @@
 @media (max-width: 900px) {
   .dash-middle { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .dash-stats {
+    grid-template-columns: 1fr;
+  }
+  .dash-health, .dash-chart, .dash-transactions {
+    padding: 16px;
+  }
+  .dash-greeting {
+    font-size: 1.25rem;
+  }
+}

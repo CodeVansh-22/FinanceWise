@@ -142,8 +142,11 @@
   .sip-inputs, .sip-chart-area {
     padding: 16px;
   }
+  .sip-inputs {
+    gap: 16px;
+  }
   .sip-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
   .sip-result-item {
     padding: 8px 12px;

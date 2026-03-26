@@ -111,3 +111,15 @@
   .budget-body { grid-template-columns: 1fr; }
   .budget-summary-row { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .budget-form-card, .budget-chart-card, .budget-right {
+    padding: 16px;
+  }
+  .budget-sum-card {
+    padding: 16px;
+  }
+  .budget-sum-value {
+    font-size: 1.25rem;
+  }
+}

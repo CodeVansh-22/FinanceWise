@@ -44,6 +44,13 @@
   }
 }
 
+@media (max-width: 640px) {
+  .sidebar {
+    left: -260px;
+    width: 260px;
+  }
+}
+
 .sidebar-logo {
   font-size: 1.8rem;
   line-height: 1;

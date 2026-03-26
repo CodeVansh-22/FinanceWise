@@ -48,6 +48,15 @@
   }
 }
 
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  .navbar-title {
+    font-size: 0.95rem;
+  }
+}
+
 .navbar-greeting strong {
   color: var(--text-primary);
 }

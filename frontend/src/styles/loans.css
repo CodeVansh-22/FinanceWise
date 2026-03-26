@@ -147,11 +147,17 @@
     align-items: flex-start;
     gap: 12px;
   }
+  .loans-title {
+    font-size: 1.25rem;
+  }
   .loan-amounts {
     flex-direction: column;
     gap: 12px;
   }
   .loans-form-card, .loan-card {
+    padding: 16px;
+  }
+  .loans-sum-card {
     padding: 16px;
   }
 }

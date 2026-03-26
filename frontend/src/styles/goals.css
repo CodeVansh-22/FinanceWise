@@ -55,6 +55,9 @@
     align-items: flex-start;
     gap: 16px;
   }
+  .goals-title {
+    font-size: 1.25rem;
+  }
   .goals-form-row {
     grid-template-columns: 1fr;
   }
