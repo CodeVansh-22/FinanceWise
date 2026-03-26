@@ -59,7 +59,7 @@ function Dashboard() {
     <motion.div className="dashboard" variants={pageVariants} initial="initial" animate="animate" exit="exit">
       <div className="dash-top">
         <div className="dash-welcome">
-          <h2 className="dash-greeting" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Namaste, {user?.name} <FaHand /></h2>
+          <h2 className="dash-greeting" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Namaste, {user?.name} </h2>
           <p className="dash-date">Aaj ki financial snapshot</p>
         </div>
         <div className="dash-level-badge" style={{ borderColor: LEVEL_COLORS[data?.level] || 'var(--border)' }}>
