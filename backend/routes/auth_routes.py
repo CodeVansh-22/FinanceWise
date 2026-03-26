@@ -7,11 +7,15 @@ auth_bp = Blueprint('auth_bp', __name__)
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
-    data = request.json
-    required_fields = ["name", "email", "password", "monthly_income"]
-    for field in required_fields:
-        if field not in data:
-            return jsonify({"error": f"Missing {field}"}), 400
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "Missing request body"}), 400
+            
+        required_fields = ["name", "email", "password", "monthly_income"]
+        for field in required_fields:
+            if field not in data:
+                return jsonify({"error": f"Missing {field}"}), 400
     
     if find_user_by_email(data["email"]):
         return jsonify({"error": "Email already exists"}), 400
@@ -36,20 +40,40 @@ def register():
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    data = request.json
-    email = data.get("email")
-    password = data.get("password")
-    
-    user = find_user_by_email(email)
-    if not user or not bcrypt.checkpw(password.encode('utf-8'), user["password_hash"].encode('utf-8')):
-        return jsonify({"error": "Invalid credentials"}), 401
+    try:
+        data = request.get_json()
+        print("Login Request Data:", data) # Debugging log
         
-    access_token = create_access_token(identity=str(user["_id"]))
-    return jsonify({
-        "message": "Login successful", 
-        "token": access_token, 
-        "user": {"name": user["name"], "email": user["email"], "level": user["level"]}
-    }), 200
+        if not data:
+            return jsonify({"error": "Missing request body"}), 400
+            
+        email = data.get("email")
+        password = data.get("password")
+        
+        if not email or not password:
+            return jsonify({"error": "Email and password are required"}), 400
+        
+        user = find_user_by_email(email)
+        
+        if not user:
+            return jsonify({"error": "Invalid credentials"}), 401
+            
+        if not bcrypt.checkpw(password.encode('utf-8'), user["password_hash"].encode('utf-8')):
+            return jsonify({"error": "Invalid credentials"}), 401
+            
+        access_token = create_access_token(identity=str(user["_id"]))
+        return jsonify({
+            "message": "Login successful", 
+            "token": access_token, 
+            "user": {
+                "name": user.get("name", "User"), 
+                "email": user.get("email"), 
+                "level": user.get("level", "Beginner")
+            }
+        }), 200
+    except Exception as e:
+        print(f"Login Error: {str(e)}") # Log the error
+        return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
 
 @auth_bp.route('/profile', methods=['GET', 'PUT'])
 @jwt_required()
