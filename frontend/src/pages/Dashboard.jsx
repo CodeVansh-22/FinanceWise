@@ -6,7 +6,7 @@ import { getUser } from '../utils/auth';
 import StatCard from '../components/StatCard';
 import TransactionList from '../components/TransactionList';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { FaHand, FaTrophy, FaThumbsUp } from 'react-icons/fa6';
+import { FaTrophy, FaThumbsUp } from 'react-icons/fa6';
 import { FaMoneyBillWave } from 'react-icons/fa';
 import { FiArrowUpRight, FiTarget, FiPieChart } from 'react-icons/fi';
 import { IoWarningOutline } from 'react-icons/io5';
