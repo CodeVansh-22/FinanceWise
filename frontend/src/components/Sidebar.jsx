@@ -32,7 +32,7 @@ function Sidebar({ isOpen, closeSidebar }) {
           <img src="/favicon.ico" alt="FinanceWise" style={{ width: '38px', height: '38px', objectFit: 'contain' }} />
           <div>
             <p className="sidebar-brand-name">FinanceWise</p>
-            <p className="sidebar-brand-sub">Smart Karo, Save Karo</p>
+            <p className="sidebar-brand-sub">Smart Bano, Save Karo</p>
           </div>
         </div>
         <button className="sidebar-close-btn" onClick={closeSidebar}>

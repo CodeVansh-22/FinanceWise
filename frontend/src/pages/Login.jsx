@@ -40,7 +40,7 @@ function Login() {
         <motion.div className="auth-brand" variants={slideUp} initial="initial" animate="animate">
           <img src="/favicon.ico" alt="FinanceWise Logo" style={{ width: '64px', height: '64px', marginBottom: '16px', objectFit: 'contain' }} />
           <h1 className="auth-brand-title">FinanceWise</h1>
-          <p className="auth-brand-tagline">Smart Karo, Save Karo</p>
+          <p className="auth-brand-tagline">Smart Bano, Save Karo</p>
           <div className="auth-features">
             <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Budget Track Karo</div>
             <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Goals Set Karo</div>

@@ -36,8 +36,8 @@
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
   }
-  .sidebar-open {
-    left: 0;
+  .sidebar.sidebar-open {
+    left: 0 !important;
   }
   .sidebar-close-btn {
     display: flex;
@@ -48,6 +48,9 @@
   .sidebar {
     left: -260px;
     width: 260px;
+  }
+  .sidebar.sidebar-open {
+    left: 0 !important;
   }
 }
 
