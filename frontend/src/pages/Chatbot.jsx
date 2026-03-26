@@ -1,3 +1,4 @@
+// Chatbot component for FinanceWise - Production Fix
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { pageVariants } from '../animations/variants';
