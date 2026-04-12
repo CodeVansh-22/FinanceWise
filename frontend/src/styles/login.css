@@ -171,3 +171,35 @@
     display: none;
   }
 }
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  z-index: 2;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.password-toggle-btn:hover {
+  color: var(--accent-blue);
+  opacity: 1;
+}
+
+.password-input-wrapper .form-input {
+  padding-right: 45px;
+}

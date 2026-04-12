@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { slideUp, fadeIn } from '../animations/variants';
 import api from '../utils/api';
 import { setToken, setUser } from '../utils/auth';
-import { FaTrophy, FaRobot, FaRocket, FaStar } from 'react-icons/fa';
+import { FaTrophy, FaRobot, FaRocket, FaStar, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FiPieChart, FiTarget } from 'react-icons/fi';
 import '../styles/login.css';
 import '../styles/register.css';
@@ -18,6 +18,7 @@ function Register() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -75,7 +76,25 @@ function Register() {
             <div className="register-grid">
               <div className="form-group">
                 <label className="form-label">Password</label>
-                <input name="password" type="password" className="form-input" placeholder="••••••••" value={form.password} onChange={handleChange} required />
+                <div className="password-input-wrapper">
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    className="form-input"
+                    placeholder="••••••••"
+                    value={form.password}
+                    onChange={handleChange}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+                  </button>
+                </div>
               </div>
               <div className="form-group">
                 <label className="form-label">Monthly Income (₹)</label>
