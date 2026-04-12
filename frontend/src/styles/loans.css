@@ -148,16 +148,20 @@
     gap: 12px;
   }
   .loans-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   .loan-amounts {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 12px;
   }
   .loans-form-card, .loan-card {
-    padding: 16px;
+    padding: 18px 16px;
   }
   .loans-sum-card {
-    padding: 16px;
+    padding: 16px 12px;
+  }
+  .loans-sum-value {
+    font-size: 1.3rem;
   }
 }

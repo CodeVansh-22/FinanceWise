@@ -40,6 +40,12 @@
 
 @media (max-width: 640px) {
   .layout-content {
-    padding: 16px 12px;
+    padding: 16px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-content {
+    padding: 16px 10px;
   }
 }

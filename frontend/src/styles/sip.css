@@ -139,8 +139,11 @@
 }
 
 @media (max-width: 640px) {
+  .sip-page {
+    gap: 16px;
+  }
   .sip-inputs, .sip-chart-area {
-    padding: 16px;
+    padding: 20px 16px;
   }
   .sip-inputs {
     gap: 16px;
@@ -148,10 +151,13 @@
   .sip-title {
     font-size: 1.25rem;
   }
+  .sip-slider-value {
+    font-size: 0.85rem;
+  }
   .sip-result-item {
-    padding: 8px 12px;
+    padding: 10px 12px;
   }
   .sip-result-value {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }

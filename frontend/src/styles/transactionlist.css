@@ -95,25 +95,25 @@
 
 @media (max-width: 640px) {
   .txn-row {
-    padding: 8px 10px;
-    gap: 8px;
+    padding: 10px 12px;
+    gap: 12px;
   }
   .txn-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 0.95rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
   }
   .txn-category {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
   }
   .txn-desc {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
   }
   .txn-amount-income, .txn-amount-expense {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
   .txn-delete-btn {
-    opacity: 0.6;
+    opacity: 0.4;
     width: 28px;
     height: 28px;
   }

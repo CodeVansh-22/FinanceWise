@@ -85,8 +85,8 @@ function SIP() {
 
         <div className="sip-chart-area">
           <h3 className="section-title">Growth Chart</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <AreaChart data={results.chartData} margin={{ top: 10, right: 10, bottom: 0, left: 20 }}>
+          <ResponsiveContainer width="100%" height={window.innerWidth < 640 ? 250 : 350}>
+            <AreaChart data={results.chartData} margin={{ top: 10, right: 10, bottom: 0, left: -10 }}>
               <defs>
                 <linearGradient id="totalGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="var(--accent-purple)" stopOpacity={0.4} />
@@ -97,10 +97,10 @@ function SIP() {
                   <stop offset="95%" stopColor="var(--accent-blue)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-              <XAxis dataKey="year" tick={{ fill: 'var(--text-muted)', fontSize: 11 }} />
-              <YAxis tick={{ fill: 'var(--text-muted)', fontSize: 11 }} tickFormatter={v => `₹${(v/100000).toFixed(0)}L`} />
-              <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+              <XAxis dataKey="year" tick={{ fill: 'var(--text-muted)', fontSize: 10 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: 'var(--text-muted)', fontSize: 10 }} tickFormatter={v => `₹${(v/100000).toFixed(1)}L`} axisLine={false} tickLine={false} />
+              <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px', fontSize: '12px' }} />
               <Area type="monotone" dataKey="invested" stroke="var(--accent-blue)" fill="url(#invGrad)" name="Invested" strokeWidth={2} />
               <Area type="monotone" dataKey="total" stroke="var(--accent-purple)" fill="url(#totalGrad)" name="Total Value" strokeWidth={2} />
             </AreaChart>

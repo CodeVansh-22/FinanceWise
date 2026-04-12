@@ -131,13 +131,23 @@
 }
 
 @media (max-width: 640px) {
+  .dashboard {
+    gap: 20px;
+  }
   .dash-stats {
     grid-template-columns: 1fr;
   }
   .dash-health, .dash-chart, .dash-transactions {
-    padding: 16px;
+    padding: 18px 16px;
   }
   .dash-greeting {
     font-size: 1.25rem;
+  }
+  .health-ring-wrap, .health-ring {
+    width: 110px;
+    height: 110px;
+  }
+  .health-number {
+    font-size: 1.6rem;
   }
 }

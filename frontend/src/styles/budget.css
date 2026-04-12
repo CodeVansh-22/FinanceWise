@@ -113,13 +113,19 @@
 }
 
 @media (max-width: 640px) {
+  .budget-page {
+    gap: 16px;
+  }
   .budget-form-card, .budget-chart-card, .budget-right {
-    padding: 16px;
+    padding: 20px 16px;
   }
   .budget-sum-card {
-    padding: 16px;
+    padding: 16px 12px;
   }
   .budget-sum-value {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+  }
+  .budget-sum-label {
+    font-size: 0.75rem;
   }
 }

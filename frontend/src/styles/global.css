@@ -215,23 +215,27 @@ input, textarea, select {
 }
 
 @media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
   :root {
     --radius-md: 10px;
     --radius-lg: 12px;
   }
   
   .section-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin-bottom: 12px;
   }
 
   .btn {
     padding: 10px 18px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .form-input {
-    padding: 8px 12px;
-    font-size: 0.85rem;
+    padding: 9px 12px;
+    font-size: 0.9rem;
   }
 }

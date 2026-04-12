@@ -109,12 +109,12 @@ function Budget() {
             <motion.div className="budget-chart-card" variants={cardVariants} initial="hidden" animate="visible" custom={4}>
               <h3 className="section-title">Category Breakdown</h3>
               <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={chartData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-                  <XAxis dataKey="name" tick={{ fill: 'var(--text-muted)', fontSize: 11 }} />
-                  <YAxis tick={{ fill: 'var(--text-muted)', fontSize: 11 }} />
-                  <Tooltip formatter={(v) => `₹${v.toLocaleString('en-IN')}`} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px' }} />
-                  <Bar dataKey="value" fill="var(--accent-blue)" radius={[4, 4, 0, 0]} />
+                <BarChart data={chartData} margin={{ top: 10, right: 10, bottom: 0, left: -20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                  <XAxis dataKey="name" tick={{ fill: 'var(--text-muted)', fontSize: 10 }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fill: 'var(--text-muted)', fontSize: 10 }} axisLine={false} tickLine={false} />
+                  <Tooltip formatter={(v) => `₹${v.toLocaleString('en-IN')}`} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px', fontSize: '12px' }} />
+                  <Bar dataKey="value" fill="var(--accent-blue)" radius={[4, 4, 0, 0]} barSize={window.innerWidth < 640 ? 20 : 35} />
                 </BarChart>
               </ResponsiveContainer>
             </motion.div>

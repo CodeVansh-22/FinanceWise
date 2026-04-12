@@ -156,15 +156,26 @@ function Dashboard() {
           {(!data && loading) ? (
             <Skeleton type="chart" />
           ) : pieData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={220}>
+            <ResponsiveContainer width="100%" height={240}>
               <PieChart>
-                <Pie data={pieData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={4} dataKey="value">
+                <Pie 
+                  data={pieData} 
+                  cx="50%" 
+                  cy="45%" 
+                  innerRadius={window.innerWidth < 640 ? 45 : 55} 
+                  outerRadius={window.innerWidth < 640 ? 75 : 85} 
+                  paddingAngle={4} 
+                  dataKey="value"
+                >
                   {pieData.map((_, i) => (
                     <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(v) => `₹${v.toLocaleString('en-IN')}`} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px' }} />
-                <Legend iconType="circle" />
+                <Tooltip 
+                  formatter={(v) => `₹${v.toLocaleString('en-IN')}`} 
+                  contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '8px', fontSize: '12px' }} 
+                />
+                <Legend iconType="circle" verticalAlign="bottom" align="center" wrapperStyle={{ fontSize: '12px' }} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
