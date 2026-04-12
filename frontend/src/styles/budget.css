@@ -43,12 +43,16 @@
   grid-template-columns: 320px 1fr;
   gap: 20px;
   align-items: start;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .budget-left {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .budget-form-card {
