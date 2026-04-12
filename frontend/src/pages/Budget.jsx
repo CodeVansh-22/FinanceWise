@@ -81,7 +81,7 @@ function Budget() {
       <div className="budget-body">
         <div className="budget-left">
           <motion.div className="budget-form-card" variants={cardVariants} initial="hidden" animate="visible" custom={3}>
-            <h3 className="section-title">Transaction Add Karo</h3>
+            <h3 className="section-title">Add Transaction</h3>
             <form onSubmit={handleSubmit} className="budget-form">
               <div className="budget-type-toggle">
                 <button type="button" className={form.type === 'income' ? 'type-btn type-active-income' : 'type-btn'} onClick={() => setForm({ ...form, type: 'income' })}><FiArrowDownLeft /> Income</button>
@@ -101,7 +101,7 @@ function Budget() {
                 <label className="form-label">Description</label>
                 <input className="form-input" placeholder="Groceries, dinner..." value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} />
               </div>
-              <button type="submit" className="btn btn-success" disabled={submitting}>{submitting ? 'Adding...' : 'Jodo +'}</button>
+              <button type="submit" className="btn btn-success" disabled={submitting}>{submitting ? 'Adding...' : 'Add +'}</button>
             </form>
           </motion.div>
 

@@ -44,10 +44,10 @@ function Loans() {
       <div className="loans-header">
         <div>
           <h2 className="loans-title" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Loans & EMI <BsBank /></h2>
-          <p className="loans-sub">Apna debt track karo</p>
+          <p className="loans-sub">Track your debt effectively</p>
         </div>
         <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}>
-          {showForm ? '✕ Cancel' : '+ Loan Add Karo'}
+          {showForm ? '✕ Cancel' : '+ Add Loan'}
         </button>
       </div>
 
@@ -69,7 +69,7 @@ function Loans() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}
         >
-          <h3 className="section-title">Loan Add Karo</h3>
+          <h3 className="section-title">Add Loan</h3>
           <form onSubmit={handleSubmit} className="loans-form">
             <div className="loans-form-grid">
               <div className="form-group">
@@ -91,7 +91,7 @@ function Loans() {
                 <input className="form-input" type="number" placeholder="120" value={form.remaining_months} onChange={e => setForm({ ...form, remaining_months: e.target.value })} required />
               </div>
             </div>
-            <button type="submit" className="btn btn-primary" disabled={submitting}>{submitting ? 'Adding...' : 'Loan Save Karo'}</button>
+            <button type="submit" className="btn btn-primary" disabled={submitting}>{submitting ? 'Adding...' : 'Save Loan'}</button>
           </form>
         </motion.div>
       )}

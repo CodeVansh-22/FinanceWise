@@ -36,7 +36,7 @@ function SIP() {
     <motion.div className="sip-page" variants={pageVariants} initial="initial" animate="animate" exit="exit">
       <div className="sip-hero">
         <h2 className="sip-title" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>SIP Calculator <FiTrendingUp /></h2>
-        <p className="sip-sub">Dekhte hain tera paisa kaise badhega compounding se</p>
+        <p className="sip-sub">See how your money grows over time with compounding</p>
       </div>
 
       <div className="sip-body">

@@ -55,14 +55,14 @@ function Learn() {
   return (
     <motion.div className="learn-page" variants={pageVariants} initial="initial" animate="animate" exit="exit">
       <div className="learn-hero">
-        <h2 className="learn-title" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>Finance Sikho <FaBookOpen /></h2>
-        <p className="learn-sub">Flip karo cards, quiz do, aur smarter bano! — Round {round}</p>
+        <h2 className="learn-title" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>Learn Finance <FaBookOpen /></h2>
+        <p className="learn-sub">Flip cards, take quizzes, and get smarter! — Round {round}</p>
       </div>
 
       <section>
         <div className="learn-section-header">
           <h3 className="section-title">Flash Cards</h3>
-          <button className="btn btn-outline learn-refresh-btn" onClick={fetchCards} style={{display: 'flex', alignItems: 'center', gap: '6px'}}><FiRefreshCw /> Naye Cards</button>
+          <button className="btn btn-outline learn-refresh-btn" onClick={fetchCards} style={{display: 'flex', alignItems: 'center', gap: '6px'}}><FiRefreshCw /> New Cards</button>
         </div>
         <div className="learn-cards-grid">
           {cards.map((card, i) => (
@@ -94,7 +94,7 @@ function Learn() {
       <section>
         <div className="learn-section-header">
           <h3 className="section-title">Quick Quiz</h3>
-          {submitted && <button className="btn btn-outline learn-refresh-btn" onClick={fetchQuiz} style={{display: 'flex', alignItems: 'center', gap: '6px'}}><FiRefreshCw /> Naye Questions</button>}
+          {submitted && <button className="btn btn-outline learn-refresh-btn" onClick={fetchQuiz} style={{display: 'flex', alignItems: 'center', gap: '6px'}}><FiRefreshCw /> New Questions</button>}
         </div>
         <div className="quiz-list">
           {quiz.map((q, i) => (
@@ -131,7 +131,7 @@ function Learn() {
             >
               <div className="quiz-result-content">
                 <span className="quiz-result-icon">{score === quiz.length ? <FaTrophy color="var(--accent-orange)" /> : score >= quiz.length / 2 ? <FaThumbsUp color="var(--accent-blue)" /> : <FiBook color="var(--text-muted)" />}</span>
-                <span>Score: {score}/{quiz.length} — {score === quiz.length ? 'Perfect! Bahut badhiya!' : 'Thoda aur practice karo!'}</span>
+                <span>Score: {score}/{quiz.length} — {score === quiz.length ? 'Perfect! Great job!' : 'Keep practicing!'}</span>
               </div>
               <button className="btn btn-success quiz-next-btn" onClick={handleNextRound} style={{display: 'inline-flex', alignItems: 'center', gap: '8px'}}>
                 Next Round <FaRocket />

@@ -41,20 +41,20 @@ function Login() {
         <motion.div className="auth-brand" variants={slideUp} initial="initial" animate="animate">
           <img src="/favicon.ico" alt="FinanceWise Logo" style={{ width: '64px', height: '64px', marginBottom: '16px', objectFit: 'contain' }} />
           <h1 className="auth-brand-title">FinanceWise</h1>
-          <p className="auth-brand-tagline">Smart Bano, Save Karo</p>
+          <p className="auth-brand-tagline">Be Smart, Save More</p>
           <div className="auth-features">
-            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Budget Track Karo</div>
-            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Goals Set Karo</div>
-            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> AI Advisor se Pucho</div>
-            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> SIP Calculator Use Karo</div>
+            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Track Budget</div>
+            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Set Goals</div>
+            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> Ask AI Advisor</div>
+            <div className="auth-feature-item"><FaCheckCircle style={{marginRight: '8px'}} /> SIP Calculator</div>
           </div>
         </motion.div>
       </div>
 
       <div className="auth-right">
         <motion.div className="auth-card" variants={slideUp} initial="initial" animate="animate">
-          <h2 className="auth-title">Wapis Aao! <FaHand style={{marginLeft: '8px'}} /></h2>
-          <p className="auth-subtitle">Apne account mein login karo</p>
+          <h2 className="auth-title">Welcome Back! <FaHand style={{marginLeft: '8px'}} /></h2>
+          <p className="auth-subtitle">Login to your account</p>
 
           {error && <div className="auth-error">{error}</div>}
 
@@ -97,13 +97,13 @@ function Login() {
               {loading ? (
                 <span>Logging in...</span>
               ) : (
-                <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Login Karo <FaRocket /></span>
+                <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Login Now <FaRocket /></span>
               )}
             </button>
           </form>
 
           <p className="auth-switch">
-            Naya account chahiye? <Link to="/register" className="auth-link">Register Karo</Link>
+            Need a new account? <Link to="/register" className="auth-link">Register Now</Link>
           </p>
         </motion.div>
       </div>

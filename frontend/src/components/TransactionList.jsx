@@ -30,7 +30,7 @@ function TransactionList({ transactions, onDelete }) {
     return (
       <div className="empty-state">
         <div className="empty-icon"><FiInbox /></div>
-        <p>Koi transaction nahi mili</p>
+        <p>No transactions found</p>
       </div>
     );
   }

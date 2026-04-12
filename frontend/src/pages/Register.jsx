@@ -45,7 +45,7 @@ function Register() {
         <motion.div className="auth-brand" variants={slideUp} initial="initial" animate="animate">
           <img src="/favicon.ico" alt="FinanceWise Logo" style={{ width: '64px', height: '64px', marginBottom: '16px', objectFit: 'contain' }} />
           <h1 className="auth-brand-title">FinanceWise</h1>
-          <p className="auth-brand-tagline">Apna financial future secure karo</p>
+          <p className="auth-brand-tagline">Secure your financial future</p>
           <div className="auth-features">
             <div className="auth-feature-item"><FaTrophy style={{marginRight: '8px'}} /> Gamified Financial Learning</div>
             <div className="auth-feature-item"><FaRobot style={{marginRight: '8px'}} /> AI Advisor — Arth</div>
@@ -57,15 +57,15 @@ function Register() {
 
       <div className="auth-right">
         <motion.div className="auth-card register-card" variants={slideUp} initial="initial" animate="animate">
-          <h2 className="auth-title">Shuru Karo! <FaRocket style={{marginLeft: '8px'}} /></h2>
-          <p className="auth-subtitle">Free mein account banao</p>
+          <h2 className="auth-title">Get Started! <FaRocket style={{marginLeft: '8px'}} /></h2>
+          <p className="auth-subtitle">Create your free account</p>
 
           {error && <div className="auth-error">{error}</div>}
 
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="register-grid">
               <div className="form-group">
-                <label className="form-label">Pura Naam</label>
+                <label className="form-label">Full Name</label>
                 <input name="name" className="form-input" placeholder="Rahul Sharma" value={form.name} onChange={handleChange} required />
               </div>
               <div className="form-group">
@@ -103,7 +103,7 @@ function Register() {
             </div>
             <div className="register-grid">
               <div className="form-group">
-                <label className="form-label">Sheher (City)</label>
+                <label className="form-label">City</label>
                 <input name="city" className="form-input" placeholder="Delhi" value={form.city} onChange={handleChange} />
               </div>
               <div className="form-group">
@@ -115,12 +115,12 @@ function Register() {
               </div>
             </div>
             <button type="submit" className="btn btn-primary auth-btn" disabled={loading}>
-              {loading ? 'Creating account...' : <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Account Banao <FaStar /></span>}
+              {loading ? 'Creating account...' : <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Create Account <FaStar /></span>}
             </button>
           </form>
 
           <p className="auth-switch">
-            Already account hai? <Link to="/login" className="auth-link">Login Karo</Link>
+            Already have an account? <Link to="/login" className="auth-link">Login Now</Link>
           </p>
         </motion.div>
       </div>

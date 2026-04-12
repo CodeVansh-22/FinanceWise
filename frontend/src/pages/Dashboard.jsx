@@ -52,15 +52,15 @@ function Dashboard() {
     data?.health_score >= 40 ? 'var(--accent-orange)' : 'var(--danger)';
 
   if (loading) {
-    return <div className="dash-loading">Dashboard load ho raha hai...</div>;
+    return <div className="dash-loading">Loading Dashboard...</div>;
   }
 
   return (
     <motion.div className="dashboard" variants={pageVariants} initial="initial" animate="animate" exit="exit">
       <div className="dash-top">
         <div className="dash-welcome">
-          <h2 className="dash-greeting" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Namaste, {user?.name} </h2>
-          <p className="dash-date">Aaj ki financial snapshot</p>
+          <h2 className="dash-greeting" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>Hello, {user?.name} </h2>
+          <p className="dash-date">Your financial snapshot today</p>
         </div>
         <div className="dash-level-badge" style={{ borderColor: LEVEL_COLORS[data?.level] || 'var(--border)' }}>
           <span style={{display: 'flex', alignItems: 'center'}}><FaTrophy /></span>
@@ -99,7 +99,7 @@ function Dashboard() {
             </div>
           </div>
           <p className="health-desc" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px'}}>
-            {data?.health_score >= 70 ? <><FaThumbsUp /> Bahut badhiya!</> : data?.health_score >= 40 ? <><IoWarningOutline /> Thoda aur improve karo</> : <><IoWarningOutline color="var(--danger)" /> Attention needed</>}
+            {data?.health_score >= 70 ? <><FaThumbsUp /> Great job!</> : data?.health_score >= 40 ? <><IoWarningOutline /> Keep improving</> : <><IoWarningOutline color="var(--danger)" /> Attention needed</>}
           </p>
           <div className="health-savings-rate">
             Savings Rate: <strong style={{ color: 'var(--accent-green)' }}>{Math.round(data?.savings_rate || 0)}%</strong>
@@ -121,7 +121,7 @@ function Dashboard() {
               </PieChart>
             </ResponsiveContainer>
           ) : (
-            <div className="empty-state"><div className="empty-icon"><FiPieChart /></div><p>Koi expense data nahi</p></div>
+            <div className="empty-state"><div className="empty-icon"><FiPieChart /></div><p>No expense data found</p></div>
           )}
         </div>
       </div>

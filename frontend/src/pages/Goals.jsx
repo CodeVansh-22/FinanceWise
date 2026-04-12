@@ -54,10 +54,10 @@ function Goals() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="section-title">Goal Add Karo</h3>
+            <h3 className="section-title">Add Goal</h3>
             <form onSubmit={handleSubmit} className="goals-form">
               <div className="form-group">
-                <label className="form-label">Goal ka Naam</label>
+                <label className="form-label">Goal Name</label>
                 <input className="form-input" placeholder="e.g. Emergency Fund" value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} required />
               </div>
               <div className="goals-form-row">
@@ -70,7 +70,7 @@ function Goals() {
                   <input className="form-input" type="date" value={form.deadline} onChange={e => setForm({ ...form, deadline: e.target.value })} required />
                 </div>
               </div>
-              <button type="submit" className="btn btn-success" disabled={submitting}>{submitting ? 'Saving...' : 'Goal Save Karo'}</button>
+              <button type="submit" className="btn btn-success" disabled={submitting}>{submitting ? 'Saving...' : 'Save Goal'}</button>
             </form>
           </motion.div>
         )}

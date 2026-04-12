@@ -11,7 +11,7 @@ import remarkGfm from 'remark-gfm';
 
 function Chatbot() {
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Namaste! I am Arth, your AI financial advisor. How can I help you today? \u25c6' }
+    { role: 'assistant', content: 'Hello! I am Arth, your AI financial advisor. How can I help you today? \u25c6' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ function Chatbot() {
       const res = await api.post('/chatbot/message', { message: userMsg });
       setMessages(prev => [...prev, { role: 'assistant', content: res.data.reply }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Maaf karna, kuch error aaya. Thodi der mein try karo!' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, an error occurred. Please try again later!' }]);
     } finally {
       setLoading(false);
     }
@@ -84,7 +84,7 @@ function Chatbot() {
       <form onSubmit={sendMessage} className="chatbot-input-row">
         <input
           className="chatbot-input"
-          placeholder="Kuch poochho... (e.g. SIP kaise start karu?)"
+          placeholder="Ask something... (e.g. How to start a SIP?)"
           value={input}
           onChange={e => setInput(e.target.value)}
           disabled={loading}
