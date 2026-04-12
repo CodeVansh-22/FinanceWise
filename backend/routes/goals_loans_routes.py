@@ -3,6 +3,7 @@ from models.goal import create_goal, get_goals_by_user, update_goal_amount, get_
 from models.transaction import create_transaction
 from models.loan import create_loan, get_loans_by_user
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from bson.objectid import ObjectId
 
 goals_loans_bp = Blueprint('goals_loans_bp', __name__)
 
@@ -17,7 +18,6 @@ def handle_goals():
             if field not in data:
                 return jsonify({"error": f"Missing {field}"}), 400
                 
-        from bson.objectid import ObjectId
         goal_data = {
             "user_id": ObjectId(user_id),
             "title": data["title"],
@@ -43,7 +43,6 @@ def add_funds_to_goal(goal_id):
         update_goal_amount(goal_id, amount_to_add)
         
         # Create a transaction entry for the fund addition
-        from bson.objectid import ObjectId
         goal = get_goals_collection().find_one({"_id": ObjectId(goal_id)})
         goal_title = goal.get("title", "Goal") if goal else "Goal"
         
@@ -72,7 +71,6 @@ def handle_loans():
             if field not in data:
                 return jsonify({"error": f"Missing {field}"}), 400
                 
-        from bson.objectid import ObjectId
         loan_data = {
             "user_id": ObjectId(user_id),
             "type": data["type"],
