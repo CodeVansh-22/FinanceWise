@@ -129,3 +129,12 @@
     font-size: 0.75rem;
   }
 }
+
+@media (max-width: 400px) {
+  .budget-type-toggle {
+    flex-direction: column;
+  }
+  .budget-form-card, .budget-chart-card, .budget-right {
+    padding: 16px 12px;
+  }
+}
