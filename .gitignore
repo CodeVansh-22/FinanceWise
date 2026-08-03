@@ -32,8 +32,10 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+backend/lib/
+backend/lib64/
+# Un-ignore frontend source lib (caught by the rule above)
+!frontend/lib/
 parts/
 sdist/
 var/
