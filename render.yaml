@@ -18,7 +18,9 @@ services:
     env: static
     rootDir: frontend
     buildCommand: "npm install && npm run build"
-    staticPublishPath: "./dist"
+    staticPublishPath: "./out"
     envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: "https://financewise-server.onrender.com/api"
       - key: VITE_API_URL
         value: "https://financewise-server.onrender.com/api"
