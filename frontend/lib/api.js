@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken, removeToken } from './auth';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:5000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://financewise-6i3z.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

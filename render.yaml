@@ -21,6 +21,6 @@ services:
     staticPublishPath: "./out"
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: "https://financewise-server.onrender.com/api"
+        value: "https://financewise-6i3z.onrender.com/api"
       - key: VITE_API_URL
-        value: "https://financewise-server.onrender.com/api"
+        value: "https://financewise-6i3z.onrender.com/api"
