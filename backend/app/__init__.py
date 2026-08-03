@@ -70,3 +70,7 @@ def create_app(config_name=None):
     app.register_blueprint(health_bp, url_prefix='/api')
 
     return app
+
+# Expose a default app instance at the package level so that Gunicorn
+# running `gunicorn app:app` (which imports the 'app' package) can find it.
+app = create_app(os.getenv("FLASK_ENV", "dev"))
